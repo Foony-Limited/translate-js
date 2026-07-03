@@ -1,0 +1,87 @@
+{
+  "name": "@foony/translate",
+  "version": "0.2.0",
+  "description": "TypeScript SDK and CLI for the Foony Translate service.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foony-Limited/translate-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Foony-Limited/translate-js/issues"
+  },
+  "homepage": "https://github.com/Foony-Limited/translate-js#readme",
+  "keywords": [
+    "foony",
+    "translate",
+    "i18n",
+    "localization",
+    "react",
+    "typescript"
+  ],
+  "type": "module",
+  "main": "./lib-cjs/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "sideEffects": false,
+  "bin": {
+    "foony-translate": "./lib/cli/index.js"
+  },
+  "files": [
+    "lib-cjs",
+    "lib",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx",
+    "!src/cli/fixtures",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib-cjs/index.js",
+      "default": "./lib/index.js"
+    },
+    "./react": {
+      "types": "./lib/react/index.d.ts",
+      "import": "./lib/react/index.js",
+      "require": "./lib-cjs/react/index.js",
+      "default": "./lib/react/index.js"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build && npm test",
+    "build": "tsc && tsc -p tsconfig.cjs.json && node ./scripts/write-cjs-package-json.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "ts-morph": "^26.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "6.0.3",
+    "vitest": "^4.0.14"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
