@@ -41,6 +41,14 @@ Keep the `.env` out of version control.
   including ancestor JSDoc — write the comment once, every leaf under it is
   translated with that context.
 
+## `<T>` or a dictionary?
+
+Pick by where the copy lives. React-rendered prose belongs in `<T>` (or `t()`):
+copy stays colocated, dynamic values ride `<Var>`/`<Num>`/`<DateTime>`, and the
+whole sentence translates as one unit. Copy that is data belongs in a dictionary:
+non-React templates, nav and config arrays, aria-labels, titles. Both feed the
+same locale JSON, so mixing them in one project is normal, not a smell.
+
 ## Docs
 
 Quickstart, component reference, and CLI reference: https://translate.foony.io/docs
